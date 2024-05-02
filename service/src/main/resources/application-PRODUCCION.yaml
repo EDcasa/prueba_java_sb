@@ -1,43 +1,23 @@
 server:
-  port: 8080
+  port: 8083
 logging:
   level:
-    root: WARN
-
-    #org.hibernate.SQL: DEBUG
-    #org.hibernate.type.descriptor.sql: TRACE
-    #org.springframework.jdbc.core.JdbcTemplate: DEBUG
-    #org.springframework.jdbc.core.StatementCreatorUtils: TRACE
+    root: INFO
+    org.hibernate.SQL: DEBUG
 ---
 spring:
   datasource:
-    oracle:
-      type: com.zaxxer.hikari.HikariDataSource
-      driver-class-name: oracle.jdbc.OracleDriver
-      jdbc-url:
-      username:
-      password:
-      hikari:
-        connectionTimeout: 60000
-        idleTimeout: 600000
-        maxLifetime: 1800000
-        maximumPoolSize: 20
-        connectionTestQuery: SELECT 1 FROM DUAL
-    jpa:
-      # database-platform: org.hibernate.dialect.PostgreSQL94Dialect
-      hibernate:
-        ddl-auto: none
-      show-sql: true
-    jackson:
-      default-property-inclusion: non_null
-  redis:
-    host: ${redis.host}
-    port: ${redis.port}
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://u3uhq5ibggo0mnvb:5GJNQ0ZzpzBWFfFhitlG@b0oyypcm81idyjhfvbqg-mysql.services.clever-cloud.com:3306/b0oyypcm81idyjhfvbqg
+    username: u3uhq5ibggo0mnvb
+    password: 5GJNQ0ZzpzBWFfFhitlG
+    hikari:
+      connectionTimeout: 60000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      maximumPoolSize: 20
+      connectionTestQuery: SELECT 1 FROM DUAL
 springdoc:
   swagger-ui:
-    enabled: false #access path "http://localhost:8080/common-services/swagger-ui.html"
-jasypt:
-  encryptor:
-    algorithm: PBEWithMD5AndDES
-    iv-generator-classname: org.jasypt.iv.NoIvGenerator
-    password: ${jasypt.encryptor.password}
+    enabled: true

@@ -8,10 +8,10 @@ logging:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    driverClassName: oracle.jdbc.OracleDriver
-    url:
-    username:
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://u3uhq5ibggo0mnvb:5GJNQ0ZzpzBWFfFhitlG@b0oyypcm81idyjhfvbqg-mysql.services.clever-cloud.com:3306/b0oyypcm81idyjhfvbqg
+    username: u3uhq5ibggo0mnvb
+    password: 5GJNQ0ZzpzBWFfFhitlG
     hikari:
       connectionTimeout: 60000
       idleTimeout: 600000
