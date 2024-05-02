@@ -1,0 +1,38 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: WARN
+---
+spring:
+  datasource:
+    oracle:
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url:
+      username:
+      password:
+      hikari:
+        connectionTimeout: 60000
+        idleTimeout: 600000
+        maxLifetime: 1800000
+        maximumPoolSize: 20
+        connectionTestQuery: SELECT 1 FROM DUAL
+    jpa:
+      # database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+      hibernate:
+        ddl-auto: none
+      show-sql: true
+    jackson:
+      default-property-inclusion: non_null
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+springdoc:
+  swagger-ui:
+    enabled: true #access path "http://localhost:8080/common-services/swagger-ui.html"
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+    password: ${jasypt.encryptor.password}

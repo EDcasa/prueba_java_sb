@@ -1,0 +1,23 @@
+server:
+  port: 8083
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+---
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: oracle.jdbc.OracleDriver
+    url:
+    username:
+    password:
+    hikari:
+      connectionTimeout: 60000
+      idleTimeout: 600000
+      maxLifetime: 1800000
+      maximumPoolSize: 20
+      connectionTestQuery: SELECT 1 FROM DUAL
+springdoc:
+  swagger-ui:
+    enabled: true

@@ -1,0 +1,25 @@
+description = 'domain'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir 'build/generated/sources/annotationProcessor/java/main'
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.3'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.13.3'
+    implementation 'org.jetbrains:annotations:24.0.0'
+    implementation 'org.springframework.security:spring-security-core:5.5.2'
+    implementation 'org.apache.poi:poi:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor("javax.xml.bind:jaxb-api:2.3.1")
+    annotationProcessor("org.hibernate:hibernate-jpamodelgen:5.5.5.Final")
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'org.springframework:spring-web:5.3.22'
+}
